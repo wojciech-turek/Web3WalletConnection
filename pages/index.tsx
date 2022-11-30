@@ -11,7 +11,13 @@ import { Web3Button } from "@web3modal/react";
 import Head from "next/head";
 import { Box, Container, Fade, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
-import { StyledHeader, StyledLink, StyledParagraph } from "../styles/styles";
+import {
+  StyledData,
+  StyledDataContainer,
+  StyledHeader,
+  StyledLink,
+  StyledParagraph,
+} from "../styles/styles";
 import Button from "../components/Button";
 import { BigNumber } from "ethers";
 import { domain, types, value } from "../utils";
@@ -119,12 +125,12 @@ export default function Home() {
     displayData: string | number;
     dataRequest: () => void | undefined;
   }) => (
-    <Stack direction="row" spacing={2} alignItems="center">
+    <StyledDataContainer>
       <Button text={buttonText} onClick={dataRequest} disabled={!isConnected} />
       <Fade suppressHydrationWarning in={!!displayData}>
-        <div>{displayData}</div>
+        <StyledData>{displayData}</StyledData>
       </Fade>
-    </Stack>
+    </StyledDataContainer>
   );
 
   return (
@@ -139,11 +145,10 @@ export default function Home() {
       </Head>
       <main>
         <Stack
-          height={"100vh"}
+          minHeight={"100vh"}
+          padding={2}
+          boxSizing={"border-box"}
           justifyContent="center"
-          sx={{
-            padding: "0.5rem",
-          }}
         >
           <Stack alignItems="center">
             <StyledHeader>
@@ -166,7 +171,7 @@ export default function Home() {
             )}
             <Web3Button label="Connect" />
           </Stack>
-          <Stack gap={2} paddingTop={2}>
+          <Stack gap={2} paddingTop={4}>
             {buttons.map((button) => (
               <DataSection
                 key={button.text}
