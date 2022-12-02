@@ -12,6 +12,16 @@ npm run dev
 yarn dev
 ```
 
+## Tools
+
+- Next.js (as the framework for the application)
+- Typescript
+- Web3Modal (tool for multi-wallet connection)
+- Ethers (unit conversion + used in the background in one of the other libraries)
+- wagmi (React hooks for ethereum)
+- Material UI (UI styling)
+- Styled-Components (for custom elements)
+
 ## Features
 
 - Wallet connection
